@@ -22,23 +22,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/brunoc/ngx-viacep/src/test.ts",
-            "tsConfig": "projects/brunoc/ngx-viacep/tsconfig.spec.json",
-            "karmaConfig": "projects/brunoc/ngx-viacep/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/brunoc/ngx-viacep/tsconfig.lib.json",
-              "projects/brunoc/ngx-viacep/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "configPath": "jest.config.js",
+            "setupFile": "src/setup-jest.ts"
           }
         }
       }
@@ -134,12 +121,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "projects/ngx-viacep-showcase/src/test.ts",
-            "polyfills": "projects/ngx-viacep-showcase/src/polyfills.ts",
-            "tsConfig": "projects/ngx-viacep-showcase/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-viacep-showcase/karma.conf.js",
+            "configPath": "jest.config.js",
+            "setupFile": "src/setup-jest.ts",
             "assets": [
               "projects/ngx-viacep-showcase/src/favicon.ico",
               "projects/ngx-viacep-showcase/src/assets"
@@ -148,19 +133,6 @@
               "projects/ngx-viacep-showcase/src/styles.scss"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/ngx-viacep-showcase/tsconfig.app.json",
-              "projects/ngx-viacep-showcase/tsconfig.spec.json",
-              "projects/ngx-viacep-showcase/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {

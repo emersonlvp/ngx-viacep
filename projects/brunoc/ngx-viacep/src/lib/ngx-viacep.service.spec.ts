@@ -1,13 +1,10 @@
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
+import { catchError } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
 import { NgxViacepService } from './ngx-viacep.service';
 import { Endereco } from './model/endereco';
 import { BASE_URL } from './model/constantes';
-import { catchError } from 'rxjs/operators';
-import { EMPTY } from 'rxjs';
 
 describe('NgxViacepService', () => {
   let service: NgxViacepService;
@@ -180,7 +177,7 @@ describe('NgxViacepService', () => {
         .buscarPorEndereco(uf, municipio, logradouro)
         .subscribe((enderecos) => {
           const found = enderecos.some((e) => e.logradouro === logradouro);
-          expect(found).toBeTrue();
+          expect(found).toBe(true);
           done();
         });
 
